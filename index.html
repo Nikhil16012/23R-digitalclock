@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hero{
+            background-color: aqua;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            color: white;
+        }
+        .container{
+            width:800px;
+            height: 180px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: red;
+        }
+        .clock{
+            width: 100%;
+            height: 100%;
+            background-color: blueviolet;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+        }
+        .clock span{
+            font-size: 80px;
+            display: inline-block;
+            width: 110px;
+            text-align: center;
+            position: relative;
+            
+        }
+#hrs::after{
+    content:"Hours";
+    font-size: 16px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform:translateX(-50%);
+}
+#min::after{
+    content:"Minutes";
+    font-size: 20px;
+    position: absolute;
+    bottom: -5px;
+     left: 50%; 
+    transform:translateX(-50%);
+}
+#sec::after{
+    content:"Seconds";
+    font-size: 16px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform:translateX(-50%);
+
+}
+    </style>
+</head>
+<body>
+    <div class="hero">
+    <div class="container">
+        <div class="clock">
+             <span id="hrs">00</span>
+             <span>:</span>
+             <span id="min">00</span>
+             <span>:</span>
+             <span id="sec">00</span>
+        </div>
+    </div>
+    </div>
+  <script>
+    let hrs=document.getElementById("hrs")
+    let mins=document.getElementById("min")
+    let sec=document.getElementById("sec")
+    setInterval(()=>{
+        let currentTime=new Date();
+    hrs.innerHTML=(currentTime.getHours()<10?"0":" ")+currentTime.getHours();
+    mins.innerHTML=(currentTime.getMinutes()<10?"0":" ")+currentTime.getMinutes();
+    sec.innerHTML=(currentTime.getSeconds()<10?"0":" ")+currentTime.getSeconds();
+    })
+   
+  </script>
+</body>
+</html>
